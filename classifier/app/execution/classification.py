@@ -25,13 +25,12 @@ class ClassifierModel(nn.Module):
 class AnimalsClassifier:
     _IMGTOTENSOR = transforms.ToTensor()
     _WEIGHTS_PATH = "weights/model.pth"
-    _DEVICE = "cpu"
+    _DEVICE = "cuda:0"
     _CLASSIFIER_THRESHOLD = 0.7
 
     def __init__(self):
         self.network = ClassifierModel()
         self.network.load_state_dict(torch.load(self._WEIGHTS_PATH, map_location=torch.device(self._DEVICE)))
-        # self.network.to(self._DEVICE)
         self.network.eval()
 
     def classify_image(self, img: bytes) -> bool:
