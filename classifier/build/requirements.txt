@@ -1,0 +1,6 @@
+torch==2.3.0
+torchvision==0.18.0
+numpy==1.23.5
+opencv-python==4.7.0.68
+celery[redis]==5.0.5
+pydantic==2.7.1
